@@ -33,7 +33,7 @@ def inserir_produto(nome: str, preco: float, categoria: str):
         cursor.execute(sql, (nome, preco, categoria))
         conn.commit()
         print('Dados inseridos com sucesso.')
-
+        cursor.close()
     except Exception as error:
        
        print(f'Falha na conexão!! Erro: {error}')
@@ -49,7 +49,7 @@ def listar_produtos():
         cursor.execute(sql)
         dados = cursor.fetchall()
         print(dados)
-
+        cursor.close()
     except Exception as error:
        
        print(f'Falha na conexão!! Erro: {error}')
@@ -66,7 +66,7 @@ def deletar_produto(id):
         cursor.execute(sql, (id))
         conn.commit()
         print('Dados deletados com sucesso.')
-
+        cursor.close()
     except Exception as error:
        
        print(f'Falha na conexão!! Erro: {error}')
@@ -84,7 +84,7 @@ def update_produto(nome: str,categoria: str, preco: float,codigo: int ):
         cursor.execute(sql, (nome,  categoria, preco, codigo))
         conn.commit()
         print('Dados alterados com sucesso.')
-
+        cursor.close()
     except Exception as error:
        
        print(f'Falha na conexão!! Erro: {error}')
@@ -99,7 +99,7 @@ def listar_produtos_codigo(id):
         cursor.execute(sql,(id))
         dados = cursor.fetchall()
         print(dados)
-
+        cursor.close()
     except Exception as error:
        
        print(f'Falha na conexão!! Erro: {error}')
